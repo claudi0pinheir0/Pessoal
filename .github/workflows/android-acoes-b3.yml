@@ -1,0 +1,45 @@
+name: App Android - Ações B3
+
+on:
+  push:
+    paths:
+      - "AcoesB3/**"
+      - ".github/workflows/android-acoes-b3.yml"
+  pull_request:
+    paths:
+      - "AcoesB3/**"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: AcoesB3
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Testes da lógica (core)
+        run: ./gradlew :core:test --stacktrace
+
+      - name: Gerar APK (debug)
+        run: ./gradlew :app:assembleDebug --stacktrace
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: acoes-b3-apk
+          path: AcoesB3/app/build/outputs/apk/debug/*.apk
+          if-no-files-found: error
+
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: relatorio-testes
+          path: AcoesB3/core/build/reports/tests/

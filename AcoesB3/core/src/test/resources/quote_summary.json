@@ -1,0 +1,5 @@
+{"quoteSummary":{"result":[{"price":{"shortName":"PETROBRAS PN","longName":"Petróleo Brasileiro S.A. - Petrobras","marketCap":{"raw":4.2E11,"fmt":"420B"}},
+"summaryDetail":{"beta":{"raw":1.25},"trailingAnnualDividendRate":{"raw":3.1},"averageVolume":{"raw":35000000},"fiftyTwoWeekHigh":{"raw":38.66},"fiftyTwoWeekLow":{"raw":28.75}},
+"defaultKeyStatistics":{"sharesOutstanding":{"raw":5.0E9},"floatShares":{"raw":60.0},"trailingEps":{}},
+"financialData":{"totalDebt":{"raw":999},"currentRatio":{"raw":1.1}},
+"assetProfile":{"sector":"Energy","sectorDisp":"Energia","industry":"Oil & Gas Integrated","website":"https://petrobras.com.br","fullTimeEmployees":41000,"longBusinessSummary":"Petrobras explora petróleo."}}],"error":null}}
