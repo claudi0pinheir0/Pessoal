@@ -1,0 +1,47 @@
+name: App iPhone - Ações B3
+
+on:
+  push:
+    paths:
+      - "AcoesB3-iOS/**"
+      - ".github/workflows/ios-acoes-b3.yml"
+  pull_request:
+    paths:
+      - "AcoesB3-iOS/**"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-15
+    defaults:
+      run:
+        working-directory: AcoesB3-iOS
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Versão do Xcode
+        run: xcodebuild -version
+
+      - name: Testes da lógica (AcoesCore)
+        run: swift test --package-path AcoesCore
+
+      - name: Compilar para o simulador
+        run: |
+          xcodebuild -project AcoesB3.xcodeproj -scheme AcoesB3 -configuration Debug \
+            -destination 'generic/platform=iOS Simulator' -derivedDataPath build/sim \
+            CODE_SIGNING_ALLOWED=NO build
+
+      - name: Compilar para iPhone (IPA sem assinatura)
+        run: |
+          xcodebuild -project AcoesB3.xcodeproj -scheme AcoesB3 -configuration Release \
+            -destination 'generic/platform=iOS' -derivedDataPath build/device \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" build
+          mkdir -p build/ipa/Payload
+          cp -R build/device/Build/Products/Release-iphoneos/AcoesB3.app build/ipa/Payload/
+          (cd build/ipa && zip -qry AcoesB3-sem-assinatura.ipa Payload)
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: acoes-b3-ipa-sem-assinatura
+          path: AcoesB3-iOS/build/ipa/AcoesB3-sem-assinatura.ipa
+          if-no-files-found: error
