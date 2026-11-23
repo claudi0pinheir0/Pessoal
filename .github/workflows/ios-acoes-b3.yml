@@ -12,15 +12,19 @@ on:
 
 jobs:
   build:
-    runs-on: macos-15
+    runs-on: macos-14
     defaults:
       run:
         working-directory: AcoesB3-iOS
     steps:
       - uses: actions/checkout@v4
 
-      - name: Versão do Xcode
-        run: xcodebuild -version
+      - name: Selecionar Xcode 16
+        run: |
+          XC=$(ls -d /Applications/Xcode_16*.app | sort -V | tail -1)
+          echo "Usando $XC"
+          sudo xcode-select -s "$XC"
+          xcodebuild -version
 
       - name: Testes da lógica (AcoesCore)
         run: swift test --package-path AcoesCore
