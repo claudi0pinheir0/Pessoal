@@ -1,0 +1,24 @@
+name: App Web - Ações B3
+
+on:
+  push:
+    paths:
+      - "AcoesB3-web/**"
+      - ".github/workflows/web-acoes-b3.yml"
+  pull_request:
+    paths:
+      - "AcoesB3-web/**"
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: AcoesB3-web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: npm test

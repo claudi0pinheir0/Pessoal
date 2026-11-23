@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ações B3</title>
+  <meta name="description" content="Cotações, histórico, indicadores fundamentalistas e notícias de ações da B3.">
+  <meta name="theme-color" content="#0b6e4f" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#101413" media="(prefers-color-scheme: dark)">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Ações B3">
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+  <link rel="icon" href="/icons/icon-192.png" type="image/png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main id="app" aria-live="polite"></main>
+  <dialog id="sheet" aria-labelledby="sheet-title">
+    <h2 id="sheet-title"></h2>
+    <p class="sheet-value"></p>
+    <p class="sheet-text"></p>
+    <button type="button" class="btn" data-close>Fechar</button>
+  </dialog>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

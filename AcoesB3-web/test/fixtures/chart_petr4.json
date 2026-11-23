@@ -1,0 +1,4 @@
+{"chart":{"result":[{"meta":{"currency":"BRL","symbol":"PETR4.SA","exchangeName":"SAO","exchangeTimezoneName":"America/Sao_Paulo","regularMarketTime":1763755200,"regularMarketPrice":32.5,"fiftyTwoWeekHigh":38.66,"fiftyTwoWeekLow":28.75,"regularMarketDayHigh":32.8,"regularMarketDayLow":31.9,"regularMarketVolume":41234500,"longName":"Petróleo Brasileiro S.A. - Petrobras","shortName":"PETROBRAS   PN      N2","chartPreviousClose":30.0,"previousClose":32.0},
+"timestamp":[1732190400,1740000000,1750000000,1763755200],
+"events":{"dividends":{"1740000000":{"amount":1.0,"date":1740000000},"1750000000":{"amount":0.5,"date":1750000000},"1700000000":{"amount":9.9,"date":1700000000}}},
+"indicators":{"quote":[{"open":[30.1,31.0,null,32.0],"high":[30.5,31.5,null,32.8],"low":[29.9,30.8,null,31.9],"close":[30.2,31.2,null,32.5],"volume":[1000,2000,null,41234500]}]}}],"error":null}}

@@ -1,0 +1,13 @@
+{
+  "name": "acoes-b3-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Ações B3 — app web (PWA) para acompanhar ações da bolsa brasileira",
+  "type": "module",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "FAKE_DATA=1 node server.js",
+    "test": "node --test test/*.test.js"
+  }
+}
